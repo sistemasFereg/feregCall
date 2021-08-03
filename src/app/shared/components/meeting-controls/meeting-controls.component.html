@@ -1,0 +1,18 @@
+<div class="controls-container">
+  <app-round-tranparent-icon-button
+    type="toggle"
+    [activeIcon]="micOffIcon"
+    [inactiveIcon]="micIcon"
+    (onClick)="onMicMute($event)"
+  ></app-round-tranparent-icon-button>
+  <app-round-tranparent-icon-button
+    class="call"
+    type="normal"
+    [inactiveIcon]="hangUpIcon"
+    [inactiveIconStyle]="{
+      stroke: 'red',
+      color: 'red'
+    }"
+    (onClick)="onHangUp()"
+  ></app-round-tranparent-icon-button>
+</div>

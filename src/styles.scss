@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --meeting-control-height: 5.5rem;
+}
+
+app-meeting-page .controls-container {
+  height: var(--meeting-control-height);
+}
+
+app-meeting-page .views-container {
+  height: calc(100vh - var(--meeting-control-height));
+}
+
+html, body {
+  min-height: 100vh;
+  max-height: 100%;
+  margin: 0;
+  background-color: #282828;
+}
+
+@font-face {
+  font-family: galanogrotesque;
+  src: url('../src/assets/fonts/galanogrotesque.ttf') format("opentype");
+}
+
+html, body { height: 100%; }
+body { margin: 0; }

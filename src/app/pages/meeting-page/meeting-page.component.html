@@ -1,0 +1,14 @@
+<div class="page">
+  <div class="image-container">
+    <img  class="images" src="../../../assets/images/logoFereg.png" height="100%" width="100%"/>
+  </div>
+  <ng-container *ngIf="!pinnedUser">
+    <div class="col-3" *ngFor="let user of userList">
+      <app-meeting-participant [user]="user" (pinned)="onPin($event)"></app-meeting-participant>
+    </div>
+  </ng-container>
+  <div class="controls-container">
+    <app-meeting-controls (micMuted)="onLocalMic($event)"
+      (hangedUp)="onLocalLeave()"></app-meeting-controls>
+  </div>
+</div>

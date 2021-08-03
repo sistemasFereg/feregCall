@@ -1,0 +1,75 @@
+<div class="page">
+  <div class="meeting-info">
+    <!-- Guard -->
+    <div *ngIf="userType === 'guard'">
+      <h5 class="title">Llamar a residente</h5>
+      <mat-select placeholder="Residencias" [(value)]="selected"
+                  formControlName="label">
+        <mat-option [value]="null">
+          Residencias
+        </mat-option>
+        <mat-option *ngFor="let item of houses" [value]="item">
+          Casa - {{item.houseNumber}}
+        </mat-option>
+      </mat-select>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callResident()">Llamar</button>
+      </div>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callManager()">Administrador</button>
+      </div>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callSupervisor()">Supervisor</button>
+      </div>
+    </div>
+    <!-- Resident -->
+    <div *ngIf="userType === 'resident'">
+      <h5 class="title">Llamar a</h5>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callGuard()">Caseta</button>
+      </div>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callSupervisor()">Supervisor</button>
+      </div>
+      <div class="button-container">
+        <button class="btnCenter" type="submit" (click)="callCenter()">Centro de monitoreo</button>
+      </div>
+    </div>
+    <!-- Admin -->
+    <div *ngIf="userType === 'admin'">
+      <h5 class="title">Llamar a</h5>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callGuard()">Caseta</button>
+      </div>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callSupervisor()">Supervisor</button>
+      </div>
+      <div class="button-container">
+        <button class="btnCenter" type="submit" (click)="callCenter()">Centro de monitoreo</button>
+      </div>
+    </div>
+    <!-- Supervisor -->
+    <div *ngIf="userType === 'supervisor'">
+      <h5 class="title">Llamar a centro de monitoreo</h5>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callCenter()">Llamar</button>
+      </div>
+    </div>
+    <!-- Center -->
+    <div *ngIf="userType === 'center'">
+      <h5 class="title">Llamar a supervisor</h5>
+      <mat-select placeholder="Supervisores" [(value)]="selected"
+                  formControlName="label">
+        <mat-option [value]="null">
+          Supervisores
+        </mat-option>
+        <mat-option *ngFor="let item of supervisors" [value]="item">
+          {{item.name}} {{item.lastName}}
+        </mat-option>
+      </mat-select>
+      <div class="button-container">
+        <button class="btn" type="submit" (click)="callSupervisor()">Llamar</button>
+      </div>
+    </div>
+  </div> 
+</div>
